@@ -32,7 +32,12 @@ public class MainManager : MonoBehaviour
         
         if (rememberToggle.isOn)
         {
+            PlayerPrefs.SetInt("remember", 1);
             PlayerPrefs.Save();
+        }
+        else
+        {
+            PlayerPrefs.SetInt("remember", 0);
         }
         
     }

@@ -20,10 +20,21 @@ public class GameOverManager : MonoBehaviour
     {
         #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
-
+        //Application.Quit();
         #else
+        
         Application.Quit();
         #endif
         
+    }
+
+
+
+    private void OnApplicationQuit()
+    {
+        if(PlayerPrefs.GetInt("remember") == 0)
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 }
