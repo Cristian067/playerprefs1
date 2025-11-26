@@ -1,0 +1,32 @@
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Level2Manager : MonoBehaviour
+{
+
+    public TextMeshProUGUI nameText;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        nameText.text = PlayerPrefs.GetString("name");
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
+    public void GoToGameOver()
+    {
+        SceneManager.LoadScene(3);
+    }
+}
