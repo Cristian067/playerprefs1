@@ -6,11 +6,12 @@ public class Level2Manager : MonoBehaviour
 {
 
     public TextMeshProUGUI nameText;
+    public TextMeshProUGUI ageText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         nameText.text = PlayerPrefs.GetString("name");
-        
+        ageText.text = PlayerPrefs.GetString("age");
     }
 
     // Update is called once per frame

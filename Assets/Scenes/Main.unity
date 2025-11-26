@@ -1802,6 +1802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainManager
   name_InputField: {fileID: 1981101647}
   age_InputField: {fileID: 622340785}
+  rememberToggle: {fileID: 159440045}
 --- !u!4 &1082814651
 Transform:
   m_ObjectHideFlags: 0
@@ -2522,7 +2523,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1565488471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1082814650}
+        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
+        m_MethodName: Forget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1565488471
 MonoBehaviour:
   m_ObjectHideFlags: 0

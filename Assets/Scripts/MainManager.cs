@@ -15,7 +15,8 @@ public class MainManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        name_InputField.text = PlayerPrefs.GetString("name");
+        age_InputField.text = PlayerPrefs.GetString("age");
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class MainManager : MonoBehaviour
     public void Save()
     {
         PlayerPrefs.SetString("name", name_InputField.text);
-        PlayerPrefs.SetInt("age", age_InputField.text.ConvertTo<int>());
+        PlayerPrefs.SetString("age", age_InputField.text);
         
         if (rememberToggle.isOn)
         {
@@ -41,6 +42,15 @@ public class MainManager : MonoBehaviour
         }
         
     }
+
+    public void Forget()
+    {
+        PlayerPrefs.DeleteAll();
+        name_InputField.text = PlayerPrefs.GetString("name");
+        age_InputField.text = PlayerPrefs.GetString("age");
+    }
+
+
     public void GoToLevel1()
     {
         SceneManager.LoadScene(1);
