@@ -2,17 +2,25 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Newtonsoft.Json;
+using System.IO;
 
 public class GameOverManager : MonoBehaviour
 {
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI ageText;
+    private string path = "save/";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        nameText.text = PlayerPrefs.GetString("name");
-        ageText.text = PlayerPrefs.GetString("age");
+        string json = File.ReadAllText(path+ $"data.json");
+        Data data = JsonConvert.DeserializeObject<Data>(json);
+
+
+
+        nameText.text = data.name;
+        ageText.text = $"{data.age}";
     }
 
     // Update is called once per frame
@@ -42,9 +50,14 @@ public class GameOverManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        if(PlayerPrefs.GetInt("remember") == 0)
+        string json = File.ReadAllText(path+ $"data.json");
+        Data data = JsonConvert.DeserializeObject<Data>(json);
+        if(!data.remember)
         {
-            PlayerPrefs.DeleteAll();
+            data.name = "";
+            data.age = 0;
+            json = JsonConvert.SerializeObject(data,Formatting.Indented);
+            File.WriteAllText(path+ $"data.json", json);
         }
     }
 }

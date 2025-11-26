@@ -1803,6 +1803,7 @@ MonoBehaviour:
   name_InputField: {fileID: 1981101647}
   age_InputField: {fileID: 622340785}
   rememberToggle: {fileID: 159440045}
+  path: 
 --- !u!4 &1082814651
 Transform:
   m_ObjectHideFlags: 0
